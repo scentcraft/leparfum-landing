@@ -51,15 +51,59 @@
       background-color: var(--light-color);
     }
     
-    .hero-image {
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       max-width: 800px;
       margin: 0 auto;
+    }
+    
+    .hero-image {
+      width: 100%;
+      margin-bottom: 2rem;
     }
     
     .hero-image img {
       display: block;
       width: 100%;
       height: auto;
+    }
+    
+    .email-capture {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .email-capture form {
+      display: flex;
+      position: relative;
+    }
+    
+    .email-capture input[type="email"] {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--primary-color);
+      background: transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+    }
+    
+    .email-capture .submit-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding: 0 1.2rem;
+      background: var(--primary-color);
+      color: var(--light-color);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      font-size: 0.8rem;
     }
     
     h1 {
@@ -266,10 +310,18 @@
   </style>
 </head>
 <body>
-  <!-- Simply display the image without overlays -->
+  <!-- Display the image with a small capture form below -->
   <section class="hero">
-    <div class="hero-image">
-      <img src="coming-soon.jpg" alt="leparfum.ai hero image" style="max-width: 100%; height: auto;"/>
+    <div class="hero-container">
+      <div class="hero-image">
+        <img src="coming-soon.jpg" alt="leparfum.ai hero image"/>
+      </div>
+      <div class="email-capture">
+        <form>
+          <input type="email" placeholder="YOUR EMAIL ADDRESS" required />
+          <button type="submit" class="submit-btn">JOIN WAITLIST</button>
+        </form>
+      </div>
     </div>
   </section>
 
