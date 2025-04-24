@@ -43,37 +43,23 @@
     }
     
     .hero {
-      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      position: relative;
+      min-height: 100vh;
+      padding: 0;
+      background-color: var(--light-color);
     }
     
     .hero-image {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1;
+      max-width: 800px;
+      margin: 0 auto;
     }
     
     .hero-image img {
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .hero-content {
-      background-color: rgba(244, 242, 237, 0.8);
-      padding: 2.5rem;
-      max-width: 600px;
-      margin: -10% auto 0;
+      height: auto;
     }
     
     h1 {
@@ -280,16 +266,10 @@
   </style>
 </head>
 <body>
+  <!-- Simply display the image without overlays -->
   <section class="hero">
     <div class="hero-image">
-      <img src="coming-soon.jpg" alt="leparfum.ai hero image"/>
-    </div>
-    <div class="hero-content">
-      <h1>MEMORY, DISTILLED</h1>
-      <p class="tagline">THE ART OF PERSONAL FRAGRANCE REIMAGINED</p>
-      <div>
-        <a href="#waitlist" class="btn btn-primary">JOIN WAITLIST</a>
-      </div>
+      <img src="coming-soon.jpg" alt="leparfum.ai hero image" style="max-width: 100%; height: auto;"/>
     </div>
   </section>
 
