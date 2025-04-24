@@ -1,27 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>leparfum.ai — The Langham</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leparfum.ai - Memory, Distilled</title>
   <style>
-    /* Make the image fill the whole viewport while keeping its aspect ratio */
-    html, body {
-      height: 100%;
-      margin: 0;
+    /* Add Colosseum Light font */
+    @font-face {
+      font-family: 'Colosseum Light';
+      src: url('https://fonts.cdnfonts.com/css/colosseum') format('woff2');
+      font-weight: 300;
+      font-style: normal;
     }
-
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
+    
+    :root {
+      --primary-color: #1a1a1a;
+      --accent-color: #c9a980;
+      --light-color: #f4f2ed;
+      --green-accent: #2c7a50;
+      --transition: all 0.5s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      /* Adjust "landing.jpg" if you give the file a different name or path */
-      background: url("coming-soon.jpg") center center / contain no-repeat;
-      /* Optional neutral background colour matching the artwork */
-      background-color: #e4e1d7;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      background-color: var(--light-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    header {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Colosseum Light', 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-content {
+      background-color: rgba(244, 242, 237, 0.8);
+      padding: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-weight: 300;
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      letter-spacing: 4px;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      margin-bottom: 3rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      padding: 1rem 2.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: var(--transition);
+      margin: 0 1rem 1rem;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      background: var(--primary-color);
+      color: var(--light-color);
+    }
+    
+    .btn-primary {
+      background: var(--primary-color);
+      color: var(--light-color);
+    }
+    
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--primary-color);
+    }
+    
+    .section {
+      padding: 8rem 0;
+      position: relative;
+    }
+    
+    .section-dark {
+      background-color: var(--primary-color);
+      color: var(--light-color);
+    }
+    
+    .section-title {
+      font-weight: 300;
+      font-size: 2.5rem;
+      letter-spacing: 4px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .section-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .section-text {
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+    
+    .highlights {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 4rem;
+    }
+    
+    .highlight {
+      flex-basis: 30%;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .highlight-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+    
+    .highlight-title {
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    
+    .highlight-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+    
+    .waitlist {
+      text-align: center;
+    }
+    
+    .form-group {
+      max-width: 500px;
+      margin: 3rem auto;
+      position: relative;
+    }
+    
+    input[type="email"] {
+      width: 100%;
+      padding: 1.2rem;
+      border: 1px solid var(--primary-color);
+      background: transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+    }
+    
+    input[type="email"]::placeholder {
+      color: rgba(26, 26, 26, 0.5);
+    }
+    
+    .submit-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding: 0 1.5rem;
+      background: var(--primary-color);
+      color: var(--light-color);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+    }
+    
+    .submit-btn:hover {
+      background: rgba(26, 26, 26, 0.8);
+    }
+    
+    .event-partner {
+      font-size: 1rem;
+      color: var(--green-accent);
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin: 1.5rem 0;
+    }
+    
+    .event-date {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 3rem;
+    }
+    
+    footer {
+      background: var(--primary-color);
+      color: var(--light-color);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .copyright {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+    
+    /* Animation classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content {
+        width: 90%;
+        padding: 2rem;
+      }
+      
+      .highlight {
+        flex-basis: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- <img src="coming-soon.jpg" alt="Coming Soon"
-       style="position:fixed;inset:0;margin:auto;max-width:100%;max-height:100%;"> -->
+  <header class="container">
+    <div class="logo">leparfum.ai</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-image">
+      <!-- This is the hero image that should be replaced -->
+      <img src="images/coming-soon.jpg" alt="leparfum.ai hero image" />
+    </div>
+    <div class="hero-content">
+      <h1>MEMORY, DISTILLED</h1>
+      <p class="tagline">THE ART OF PERSONAL FRAGRANCE REIMAGINED</p>
+      <div>
+        <a href="#waitlist" class="btn btn-primary">JOIN WAITLIST</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">EXTRAORDINARY FRAGRANCE</h2>
+      <div class="section-content">
+        <p class="section-text">Not just a perfume, but an olfactory memory that evolves with its wearer. Each creation is a collaboration between master perfumers, advanced AI, and your unique sensory palette.</p>
+      </div>
+      <div class="highlights">
+        <div class="highlight fade-in">
+          <div class="highlight-icon">✦</div>
+          <h3 class="highlight-title">MASTER CRAFTED</h3>
+          <p class="highlight-text">Created in partnership with IFF—the legendary perfume house behind the world's top luxury brands.</p>
+        </div>
+        <div class="highlight fade-in">
+          <div class="highlight-icon">✦</div>
+          <h3 class="highlight-title">EXTRAIT DE PARFUM</h3>
+          <p class="highlight-text">Concentrated at 20%—ensuring a rich, long-lasting scent experience that unfolds throughout the day.</p>
+        </div>
+        <div class="highlight fade-in">
+          <div class="highlight-icon">✦</div>
+          <h3 class="highlight-title">PURE LUXURY</h3>
+          <p class="highlight-text">Ingredients 8x more expensive than most high-end brands, ethically sourced and cruelty-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="craftsmanship" class="section">
+    <div class="container">
+      <h2 class="section-title">THE ALCHEMY</h2>
+      <div class="section-content">
+        <p class="section-text">Each personalized experience yields three distinct treasures: two scents crafted to your unique preferences, and a signature fragrance that captures the essence of your event or occasion.</p>
+        <p class="section-text">Our collection blends natural and cutting-edge ingredients selected by world-renowned Master Perfumers to create truly bespoke fragrances.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="section section-dark waitlist">
+    <div class="container">
+      <h2 class="section-title">BE AMONG THE FIRST</h2>
+      <div class="section-content">
+        <p class="section-text">LeParfum.ai is available exclusively by invitation for select events, luxury brands, and bespoke gifts. Join our waitlist to be notified when we open our doors.</p>
+        <div class="form-group">
+          <input type="email" placeholder="YOUR EMAIL ADDRESS" />
+          <button class="submit-btn">JOIN</button>
+        </div>
+        <p class="event-partner">THE LANGHAM</p>
+        <p class="event-date">24.04.2025 | ALESSANDRO</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="copyright">© 2025 leparfum.ai by Scentcraft | Paris • New York • Tokyo</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faders = document.querySelectorAll('.fade-in');
+      
+      const appearOptions = {
+        threshold: 0.3,
+        rootMargin: "0px 0px -100px 0px"
+      };
+      
+      const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+      
+      faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+      });
+    });
+  </script>
 </body>
 </html>
