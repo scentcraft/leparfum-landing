@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>leparfum.ai - Memory, Distilled</title>
+  <title>leparfum.ai - Bottle the Moment</title>
   <style>
     /* Add Colosseum Light font */
     @font-face {
@@ -34,12 +34,14 @@
       background-color: var(--light-color);
       line-height: 1.6;
       overflow-x: hidden;
+      text-align: center;
     }
     
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem;
+      text-align: center;
     }
     
     .hero {
@@ -50,6 +52,7 @@
       min-height: 80vh;
       padding: 0;
       background-color: var(--light-color);
+      text-align: center;
     }
     
     .hero-container {
@@ -59,24 +62,28 @@
       width: 100%;
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
     }
     
     .hero-image {
       width: 100%;
       max-width: 800px;
       margin: 0 auto 40px;
+      text-align: center;
     }
     
     .hero-image img {
       display: block;
       width: 100%;
       height: auto;
+      margin: 0 auto;
     }
     
     .email-capture {
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
+      text-align: center;
     }
     
     .email-capture form {
@@ -85,6 +92,7 @@
       width: 100%;
       height: 50px;
       border: 1px solid var(--primary-color);
+      text-align: left;
     }
     
     .email-capture input[type="email"] {
@@ -113,58 +121,16 @@
       text-transform: uppercase;
     }
     
-    h1 {
-      font-weight: 300;
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-      letter-spacing: 4px;
-    }
-    
-    .tagline {
-      font-size: 1.1rem;
-      font-weight: 300;
-      letter-spacing: 3px;
-      margin-bottom: 2.5rem;
-    }
-    
-    .btn {
-      display: inline-block;
-      background: transparent;
-      border: 1px solid var(--primary-color);
-      color: var(--primary-color);
-      padding: 0.8rem 2rem;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-decoration: none;
-      transition: var(--transition);
-      margin: 0 1rem 1rem;
-      cursor: pointer;
-    }
-    
-    .btn:hover {
-      background: var(--primary-color);
-      color: var(--light-color);
-    }
-    
-    .btn-primary {
-      background: var(--primary-color);
-      color: var(--light-color);
-    }
-    
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--primary-color);
-    }
-    
     .section {
       padding: 8rem 0;
       position: relative;
+      text-align: center;
     }
     
     .section-dark {
       background-color: var(--primary-color);
       color: var(--light-color);
+      text-align: center;
     }
     
     .section-title {
@@ -186,6 +152,7 @@
       font-weight: 300;
       margin-bottom: 3rem;
       line-height: 1.8;
+      text-align: center;
     }
     
     .highlights {
@@ -193,6 +160,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       margin-top: 4rem;
+      text-align: center;
     }
     
     .highlight {
@@ -205,6 +173,7 @@
       font-size: 2rem;
       margin-bottom: 1rem;
       color: var(--accent-color);
+      text-align: center;
     }
     
     .highlight-title {
@@ -212,67 +181,13 @@
       font-size: 1.5rem;
       margin-bottom: 1rem;
       letter-spacing: 2px;
+      text-align: center;
     }
     
     .highlight-text {
       font-size: 0.95rem;
       font-weight: 300;
-    }
-    
-    .waitlist {
       text-align: center;
-    }
-    
-    .form-group {
-      max-width: 500px;
-      margin: 3rem auto;
-      position: relative;
-    }
-    
-    input[type="email"] {
-      width: 100%;
-      padding: 1.2rem;
-      border: 1px solid var(--primary-color);
-      background: transparent;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
-    }
-    
-    input[type="email"]::placeholder {
-      color: rgba(26, 26, 26, 0.5);
-    }
-    
-    .submit-btn {
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      padding: 0 1.5rem;
-      background: var(--primary-color);
-      color: var(--light-color);
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 1px;
-    }
-    
-    .submit-btn:hover {
-      background: rgba(26, 26, 26, 0.8);
-    }
-    
-    .event-partner {
-      font-size: 1rem;
-      color: var(--green-accent);
-      font-weight: 300;
-      letter-spacing: 2px;
-      margin: 1.5rem 0;
-    }
-    
-    .event-date {
-      font-size: 1rem;
-      font-weight: 400;
-      margin-top: 3rem;
     }
     
     footer {
@@ -285,6 +200,7 @@
     .copyright {
       font-size: 0.8rem;
       opacity: 0.7;
+      text-align: center;
     }
     
     /* Animation classes */
@@ -300,6 +216,10 @@
     }
     
     @media (max-width: 768px) {
+      body, div, p, h1, h2, h3, h4, h5, h6, span, a, li, ul, ol {
+        text-align: center !important;
+      }
+      
       .hero-container {
         max-width: 100%;
         padding: 0 20px;
@@ -320,6 +240,7 @@
         height: 60px;
         border: 1px solid var(--primary-color);
         margin-bottom: 1px;
+        text-align: center;
       }
       
       .email-capture .submit-btn {
@@ -330,62 +251,52 @@
       
       .section {
         padding: 4rem 1rem;
+        text-align: center;
       }
       
       .section-title {
         font-size: 2rem;
+        text-align: center;
       }
       
       .section-text {
         font-size: 1rem;
         margin-bottom: 2rem;
+        padding: 0 20px;
+        text-align: center;
+      }
+      
+      .highlight {
+        flex-basis: 100%;
+        text-align: center;
+      }
+      
+      .highlight-text {
+        padding: 0 30px;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Display the image with a small capture form below -->
   <section class="hero">
     <div class="hero-container">
       <div class="hero-image">
         <img src="coming-soon.jpg" alt="leparfum.ai hero image"/>
       </div>
       <div class="email-capture">
-        <form>
-          <input type="email" placeholder="YOUR EMAIL ADDRESS" required />
-          <button type="submit" class="submit-btn">JOIN WAITLIST</button>
+        <form action="https://formsubmit.co/michelle@leparfum.ai" method="POST" style="display: flex; width: 100%; max-width: 600px; margin: 0 auto;">
+          <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" style="text-align: center; width: 70%; height: 50px; border: 1px solid var(--primary-color); border-right: none; padding: 0 20px; outline: none;" required />
+          <input type="hidden" name="_subject" value="New LeParfum Waitlist Signup">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://leparfum.ai/thank-you">
+          <button type="submit" class="submit-btn" style="width: 30%; height: 50px; border: 1px solid var(--primary-color); background: var(--primary-color); cursor: pointer;"></button>
         </form>
       </div>
     </div>
   </section>
 
-  <section class="section section-dark" style="text-align: center;">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title" style="text-align: center;">TRANSFORM YOUR EVENTS & GIFTS</h2>
-      <div class="section-content" style="text-align: center;">
-        <p class="section-text" style="text-align: center;">Elevate your most important moments with bespoke fragrances that leave lasting impressions. Whether for valued clients or dedicated employees, leparfum.ai creates sensory experiences that transcend traditional gifting.</p>
-      </div>
-      <div class="highlights" style="text-align: center;">
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto;">
-          <div class="highlight-icon" style="text-align: center; display: block; width: 100%;">✦</div>
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%;">UNFORGETTABLE EVENTS</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%;">Turn corporate gatherings, product launches, and celebrations into multi-sensory experiences where each guest receives a personalized fragrance they'll remember long after the event ends.</p>
-        </div>
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto;">
-          <div class="highlight-icon" style="text-align: center; display: block; width: 100%;">✦</div>
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%;">CLIENT APPRECIATION</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%;">Move beyond conventional corporate gifts with a custom fragrance experience that tells your clients they're truly valued. Each scent is crafted to reflect their unique preferences and your brand's essence.</p>
-        </div>
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto;">
-          <div class="highlight-icon" style="text-align: center; display: block; width: 100%;">✦</div>
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%;">EMPLOYEE RECOGNITION</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%;">Recognize outstanding team members with the gift of personalized luxury—a bespoke fragrance that acknowledges their contribution in a way they'll appreciate every day.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="craftsmanship" class="section" style="text-align: center;">
+  <section class="section" style="text-align: center;">
     <div class="container" style="text-align: center;">
       <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">THE ALCHEMY</h2>
       <div class="section-content" style="text-align: center;">
@@ -420,39 +331,12 @@
       </div>
     </div>
   </section>
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto;">
-          <div class="highlight-icon" style="text-align: center; display: block; width: 100%;">✦</div>
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%;">EXTRAIT DE PARFUM</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%;">Concentrated at 20%—ensuring a rich, long-lasting scent experience that unfolds throughout the day.</p>
-        </div>
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto;">
-          <div class="highlight-icon" style="text-align: center; display: block; width: 100%;">✦</div>
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%;">ETHICALLY CRAFTED</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%;">All ingredients are ethically sourced, cruelty-free and clean, ensuring a luxury experience that aligns with modern values.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="waitlist" class="section section-dark waitlist" style="text-align: center;">
+  <section class="section section-dark waitlist" style="text-align: center; padding-top: 4rem;">
     <div class="container" style="text-align: center;">
-      <h2 class="section-title" style="text-align: center;">BE AMONG THE FIRST</h2>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">BE AMONG THE FIRST</h2>
       <div class="section-content" style="text-align: center;">
-        <p class="section-text" style="text-align: center;">leparfum.ai is available exclusively by invitation for select events, luxury brands, and bespoke gifts. Join our waitlist to be notified when we open our doors.</p>
-        <div class="form-group" style="text-align: center;">
-          <input type="email" placeholder="YOUR EMAIL ADDRESS" style="text-align: center;" />
-          <button class="submit-btn"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="craftsmanship" class="section">
-    <div class="container">
-      <h2 class="section-title">THE ALCHEMY</h2>
-      <div class="section-content">
-        <p class="section-text">Each recipient embarks on an intuitive AI-guided journey to discover their perfect scent profile. The result: custom fragrances that feel intimately familiar yet excitingly new, plus a signature fragrance that captures your event's essence.</p>
-        <p class="section-text">Our master perfumers blend premium ingredients to create fragrances that evolve beautifully on the skin, transforming gifting from a transaction into an experience that strengthens relationships.</p>
+        <p class="section-text" style="text-align: center; margin-bottom: 3rem; line-height: 1.7;">leparfum.ai is available exclusively by invitation for select events, luxury brands, and bespoke gifts. Join our waitlist to be notified when we open our doors.</p>
       </div>
     </div>
   </section>
