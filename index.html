@@ -1,393 +1,116 @@
-<section class="section section-dark" style="text-align: center; margin-top: 50px;">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">MASTER CRAFTED</h2>
-      <div class="section-content" style="text-align: center;">
-        <p class="section-text" style="text-align: center; margin-bottom: 2.5rem; line-height: 1.7;">Not just a perfume, but an olfactory memory that evolves with its wearer. Each creation is a collaboration between master perfumers, advanced AI, and your unique sensory palette.</p>
-        <p class="section-text" style="text-align: center; margin-bottom: 4rem; line-height: 1.7;">Created in partnership with IFF—the legendary perfume house behind the world's top luxury brands.</p>
-      </div>
-      <div class="highlights" style="text-align: center;">
-        <div style="text-align: center; margin: 0 auto 2rem;">
-          <div style="color: #c9a980; font-size: 2rem; text-align: center; margin-bottom: 3rem;">♦</div>
-        </div>
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto 2rem;">
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%; margin-bottom: 1.5rem; font-size: 1.8rem;">EXTRAIT DE PARFUM</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%; line-height: 1.7; margin-bottom: 3rem;">Concentrated at 20%—ensuring a rich, long-lasting scent experience that unfolds throughout the day.</p>
-        </div>
-        <div style="text-align: center; margin: 0 auto 2rem;">
-          <div style="color: #c9a980; font-size: 2rem; text-align: center; margin-bottom: 3rem;">♦</div>
-        </div>
-        <div class="highlight fade-in" style="text-align: center; display: block; width: 100%; padding: 0 20px; margin: 0 auto;">
-          <h3 class="highlight-title" style="text-align: center; display: block; width: 100%; margin-bottom: 1.5rem; font-size: 1.8rem;">ETHICALLY CRAFTED</h3>
-          <p class="highlight-text" style="text-align: center; display: block; width: 100%; line-height: 1.7; margin-bottom: 3rem;">All ingredients are ethically sourced, cruelty-free and clean, ensuring a luxury experience that aligns with modern values.</p>
-        </div>
-      </div>
-    </div>
-  </section><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>leparfum.ai - Bottle the Moment</title>
-  <style>
-    /* Add Colosseum Light font */
-    @font-face {
-      font-family: 'Colosseum Light';
-      src: url('https://fonts.cdnfonts.com/css/colosseum') format('woff2');
-      font-weight: 300;
-      font-style: normal;
-    }
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap');
-    
-    :root {
-      --primary-color: #1a1a1a;
-      --accent-color: #c9a980;
-      --light-color: #f4f2ed;
-      --green-accent: #2c7a50;
-      --transition: all 0.5s ease;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--primary-color);
-      background-color: var(--light-color);
-      line-height: 1.6;
-      overflow-x: hidden;
-      text-align: center;
-    }
-    
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      text-align: center;
-    }
-    
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 80vh;
-      padding: 0;
-      background-color: var(--light-color);
-      text-align: center;
-    }
-    
-    .hero-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .hero-image {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 40px;
-      text-align: center;
-    }
-    
-    .hero-image img {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-    }
-    
-    .email-capture {
-      width: 100%;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .email-capture form {
-      display: flex;
-      position: relative;
-      width: 100%;
-      height: 50px;
-      border: 1px solid var(--primary-color);
-      text-align: left;
-    }
-    
-    .email-capture input[type="email"] {
-      width: 70%;
-      height: 100%;
-      padding: 0 20px;
-      border: none;
-      background: var(--light-color);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      outline: none;
-    }
-    
-    .email-capture .submit-btn {
-      width: 30%;
-      height: 100%;
-      padding: 0;
-      background: var(--primary-color);
-      color: var(--light-color);
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 2px;
-      font-size: 14px;
-      text-transform: uppercase;
-    }
-    
-    .section {
-      padding: 8rem 0;
-      position: relative;
-      text-align: center;
-    }
-    
-    .section-dark {
-      background-color: var(--primary-color);
-      color: var(--light-color);
-      text-align: center;
-    }
-    
-    .section-title {
-      font-weight: 300;
-      font-size: 2.5rem;
-      letter-spacing: 4px;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    
-    .section-content {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .section-text {
-      font-size: 1.1rem;
-      font-weight: 300;
-      margin-bottom: 3rem;
-      line-height: 1.8;
-      text-align: center;
-    }
-    
-    .highlights {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 4rem;
-      text-align: center;
-    }
-    
-    .highlight {
-      flex-basis: 30%;
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-    
-    .highlight-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
-      text-align: center;
-    }
-    
-    .highlight-title {
-      font-weight: 400;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-    
-    .highlight-text {
-      font-size: 0.95rem;
-      font-weight: 300;
-      text-align: center;
-    }
-    
-    footer {
-      background: var(--primary-color);
-      color: var(--light-color);
-      padding: 4rem 0;
-      text-align: center;
-    }
-    
-    .copyright {
-      font-size: 0.8rem;
-      opacity: 0.7;
-      text-align: center;
-    }
-    
-    /* Animation classes */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    
-    .fade-in.appear {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    @media (max-width: 768px) {
-      body, div, p, h1, h2, h3, h4, h5, h6, span, a, li, ul, ol {
-        text-align: center !important;
-      }
-      
-      .hero-container {
-        max-width: 100%;
-        padding: 0 20px;
-      }
-      
-      .hero-image {
-        max-width: 100%;
-      }
-      
-      .email-capture form {
-        flex-direction: column;
-        height: auto;
-        border: none;
-      }
-      
-      .email-capture input[type="email"] {
-        width: 100%;
-        height: 60px;
-        border: 1px solid var(--primary-color);
-        margin-bottom: 1px;
-        text-align: center;
-      }
-      
-      .email-capture .submit-btn {
-        position: relative;
-        width: 100%;
-        height: 60px;
-      }
-      
-      .section {
-        padding: 4rem 1rem;
-        text-align: center;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-        text-align: center;
-      }
-      
-      .section-text {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-        padding: 0 20px;
-        text-align: center;
-      }
-      
-      .highlight {
-        flex-basis: 100%;
-        text-align: center;
-      }
-      
-      .highlight-text {
-        padding: 0 30px;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leparfum.ai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f5f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 40px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: #333;
+        }
+        
+        .tagline {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-image {
+            margin: 30px 0;
+            max-width: 100%;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            margin: 40px 0 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .description {
+            font-size: 14px;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        
+        .cta-container {
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        
+        .border {
+            border-top: 1px solid #eee;
+            max-width: 200px;
+            margin: 30px auto;
+        }
+    </style>
 </head>
 <body>
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-image">
-        <img src="coming-soon.jpg" alt="leparfum.ai hero image"/>
-      </div>
-      <div class="email-capture">
-        <form action="https://formsubmit.co/michelle@leparfum.ai" method="POST" style="display: flex; width: 100%; max-width: 600px; margin: 0 auto;">
-          <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" style="text-align: center; width: 70%; height: 50px; border: 1px solid var(--primary-color); border-right: none; padding: 0 20px; outline: none;" required />
-          <input type="hidden" name="_subject" value="New LeParfum Waitlist Signup">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://leparfum.ai/thank-you">
-          <button type="submit" class="submit-btn" style="width: 30%; height: 50px; border: 1px solid var(--primary-color); background: var(--primary-color); cursor: pointer;"></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark" style="text-align: center;">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">TRANSFORM YOUR EVENTS & GIFTS</h2>
-      <div class="section-content" style="text-align: center;">
-        <p class="section-text" style="text-align: center; margin-bottom: 2.5rem; line-height: 1.7;">Elevate your most important moments with bespoke fragrances that leave lasting impressions. Whether for valued clients or dedicated employees, leparfum.ai creates sensory experiences that transcend traditional gifting.</p>
-      </div>
-      
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 60px;">
-        <div style="flex-basis: 30%; text-align: center; margin-bottom: 40px;">
-          <div style="color: #c9a980; font-size: 2rem; text-align: center; margin-bottom: 2rem;">♦</div>
-          <h3 style="font-weight: 400; font-size: 1.5rem; margin-bottom: 1.5rem; letter-spacing: 2px;">UNFORGETTABLE EVENTS</h3>
-          <p style="font-size: 1rem; line-height: 1.7; padding: 0 15px;">Turn corporate gatherings, product launches, and celebrations into multi-sensory experiences where each guest receives a personalized fragrance they'll remember long after the event ends.</p>
-        </div>
-        
-        <div style="flex-basis: 30%; text-align: center; margin-bottom: 40px;">
-          <div style="color: #c9a980; font-size: 2rem; text-align: center; margin-bottom: 2rem;">♦</div>
-          <h3 style="font-weight: 400; font-size: 1.5rem; margin-bottom: 1.5rem; letter-spacing: 2px;">CLIENT APPRECIATION</h3>
-          <p style="font-size: 1rem; line-height: 1.7; padding: 0 15px;">Move beyond conventional corporate gifts with a custom fragrance experience that tells your clients they're truly valued. Each scent is crafted to reflect their unique preferences and your brand's essence.</p>
-        </div>
-        
-        <div style="flex-basis: 30%; text-align: center; margin-bottom: 40px;">
-          <div style="color: #c9a980; font-size: 2rem; text-align: center; margin-bottom: 2rem;">♦</div>
-          <h3 style="font-weight: 400; font-size: 1.5rem; margin-bottom: 1.5rem; letter-spacing: 2px;">EMPLOYEE RECOGNITION</h3>
-          <p style="font-size: 1rem; line-height: 1.7; padding: 0 15px;">Recognize outstanding team members with the gift of personalized luxury—a bespoke fragrance that acknowledges their contribution in a way they'll appreciate every day.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-dark waitlist" style="text-align: center; padding-top: 4rem;">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">BE AMONG THE FIRST</h2>
-      <div class="section-content" style="text-align: center;">
-        <p class="section-text" style="text-align: center; margin-bottom: 3rem; line-height: 1.7;">leparfum.ai is available exclusively by invitation for select events, luxury brands, and bespoke gifts. Join our waitlist to be notified when we open our doors.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
     <div class="container">
-      <p class="copyright">© 2025 leparfum.ai by Scentcraft | London • Barcelona • Paris • New York</p>
+        <h1 class="logo">leparfum.ai</h1>
+        
+        <h2 class="tagline">BOTTLE THE MOMENT</h2>
+        
+        <p class="subtitle">The art of personal fragrance reimagined with AI</p>
+        
+        <img class="feature-image" src="/api/placeholder/400/320" alt="Perfume bottle with a red flower" />
+        
+        <h3 class="section-title">MASTER CRAFTED</h3>
+        
+        <p class="description">Created in partnership with IFF - the legendary perfume house behind the world's leading brands.<br>
+        Each creation is a collaboration between master perfumers, advanced AI and your unique sensory palette.</p>
+        
+        <h3 class="section-title">THE ALCHEMY</h3>
+        
+        <p class="description">Each personalized experience yields three distinct treasures: two scents crafted to your unique preference, and a signature fragrance that captures the essence of your event or occasion.</p>
+        
+        <p class="description">Our collection blends natural, clean, ethically sourced & cruelty-free ingredients selected by world-renowned Master Perfumers to create truly bespoke fragrances. Concentrated at 20% - ensuring a rich, long lasting scent experience that unfolds throughout the day.</p>
+        
+        <div class="border"></div>
+        
+        <h3 class="section-title">COMING SOON</h3>
+        
+        <p class="description">leparfum.ai is available exclusively by invitation for select events, luxury brands, and bespoke gifts.<br>
+        Join our waitlist to be notified when we open doors.</p>
+        
+        <div class="cta-container">
+            <a href="#" class="cta-button">JOIN THE WAITLIST</a>
+        </div>
     </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const faders = document.querySelectorAll('.fade-in');
-      
-      const appearOptions = {
-        threshold: 0.3,
-        rootMargin: "0px 0px -100px 0px"
-      };
-      
-      const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            return;
-          } else {
-            entry.target.classList.add('appear');
-            appearOnScroll.unobserve(entry.target);
-          }
-        });
-      }, appearOptions);
-      
-      faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-      });
-    });
-  </script>
 </body>
 </html>
