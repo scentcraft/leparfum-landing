@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>leparfum.ai</title>
     <style>
+        @font-face {
+            font-family: 'Colosseum Light';
+            src: url('https://db.onlinewebfonts.com/t/ae164593ed3a4a2a575d3c6d6d2fe455.woff2') format('woff2'),
+                 url('https://db.onlinewebfonts.com/t/ae164593ed3a4a2a575d3c6d6d2fe455.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Andale Mono', 'Courier New', monospace;
             text-align: center;
             margin: 0;
             padding: 20px;
@@ -22,17 +31,20 @@
         }
         
         .logo {
+            font-family: 'Colosseum Light', 'Arial', sans-serif;
             font-size: 40px;
             margin-bottom: 20px;
             font-weight: 300;
             color: #333;
+            letter-spacing: 1px;
         }
         
         .tagline {
+            font-family: 'Colosseum Light', 'Arial', sans-serif;
             font-size: 24px;
             margin-bottom: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
         
         .subtitle {
@@ -43,13 +55,15 @@
         .feature-image {
             margin: 30px 0;
             max-width: 100%;
+            height: auto;
         }
         
         .section-title {
+            font-family: 'Colosseum Light', 'Arial', sans-serif;
             font-size: 20px;
             margin: 40px 0 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
         
         .description {
@@ -71,12 +85,26 @@
             font-size: 14px;
             border-radius: 3px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Andale Mono', 'Courier New', monospace;
         }
         
         .border {
             border-top: 1px solid #eee;
             max-width: 200px;
             margin: 30px auto;
+        }
+        
+        form {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        
+        input[type="email"] {
+            padding: 10px;
+            width: 70%;
+            font-family: 'Andale Mono', 'Courier New', monospace;
+            border: 1px solid #333;
         }
     </style>
 </head>
@@ -88,7 +116,8 @@
         
         <p class="subtitle">The art of personal fragrance reimagined with AI</p>
         
-        <img class="feature-image" src="/api/placeholder/400/320" alt="Perfume bottle with a red flower" />
+        <!-- Replace with your actual image path -->
+        <img class="feature-image" src="perfume-flower.jpg" alt="Perfume bottle with a red flower" />
         
         <h3 class="section-title">MASTER CRAFTED</h3>
         
@@ -109,7 +138,11 @@
         Join our waitlist to be notified when we open doors.</p>
         
         <div class="cta-container">
-            <a href="#" class="cta-button">JOIN THE WAITLIST</a>
+            <form action="https://formsubmit.co/michelle@leparfum.ai" method="POST">
+                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required>
+                <input type="hidden" name="_subject" value="New LeParfum Waitlist Signup">
+                <button type="submit" class="cta-button">JOIN THE WAITLIST</button>
+            </form>
         </div>
     </div>
 </body>
