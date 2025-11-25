@@ -179,6 +179,141 @@
         .hidden {
             display: none;
         }
+
+        /* QR Code Section */
+        .qr-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .qr-code-wrapper {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .qr-code-wrapper img {
+            display: block;
+            width: 160px;
+            height: 160px;
+        }
+
+        .qr-download-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .download-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-family: 'Andale Mono', 'Courier New', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+        }
+
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Social Share Buttons */
+        .social-section {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-section h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .social-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Andale Mono', 'Courier New', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .social-btn.whatsapp { background: #25D366; }
+        .social-btn.whatsapp:hover { background: #20BA5A; }
+
+        .social-btn.sms { background: #3B82F6; }
+        .social-btn.sms:hover { background: #2563EB; }
+
+        .social-btn.telegram { background: #0088cc; }
+        .social-btn.telegram:hover { background: #0077b5; }
+
+        .social-btn.messenger { background: #0084FF; }
+        .social-btn.messenger:hover { background: #0073E6; }
+
+        .native-share-btn {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .native-share-btn:hover {
+            background: linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%);
+        }
+
+        @media (max-width: 480px) {
+            .social-buttons {
+                grid-template-columns: 1fr;
+            }
+            .native-share-btn {
+                grid-column: span 1;
+            }
+            .sharing-link-container {
+                flex-direction: column;
+            }
+            .sharing-link-box {
+                min-width: unset;
+            }
+        }
     </style>
 </head>
 <body>
@@ -192,6 +327,65 @@
             <div class="sharing-link-container">
                 <div id="sharing-link" class="sharing-link-box"></div>
                 <button id="copy-button" class="copy-button" onclick="copyShareLink()">Copy</button>
+            </div>
+
+            <!-- QR Code Section -->
+            <div class="qr-section">
+                <div class="qr-container">
+                    <div class="qr-code-wrapper">
+                        <img id="qr-code" src="" alt="QR Code" />
+                    </div>
+                    <div class="qr-download-buttons">
+                        <button class="download-btn" onclick="downloadQR('png')">Download PNG</button>
+                        <button class="download-btn" onclick="downloadQR('svg')">Download SVG</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Share Buttons -->
+            <div class="social-section">
+                <h4>Quick Share</h4>
+                <div class="social-buttons">
+                    <!-- Native Share (if supported) -->
+                    <button id="native-share-btn" class="social-btn native-share-btn hidden" onclick="nativeShare()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                        </svg>
+                        Share...
+                    </button>
+
+                    <!-- WhatsApp -->
+                    <button class="social-btn whatsapp" onclick="shareWhatsApp()">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        WhatsApp
+                    </button>
+
+                    <!-- SMS -->
+                    <button class="social-btn sms" onclick="shareSMS()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                        </svg>
+                        SMS
+                    </button>
+
+                    <!-- Telegram -->
+                    <button class="social-btn telegram" onclick="shareTelegram()">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                        </svg>
+                        Telegram
+                    </button>
+
+                    <!-- Messenger -->
+                    <button class="social-btn messenger" onclick="shareMessenger()">
+                        <svg fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.11C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259L10.732 8l3.13 3.259L19.752 8l-6.559 6.963z"/>
+                        </svg>
+                        Messenger
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -229,6 +423,17 @@
     </div>
 
     <script>
+        // Store the full share URL globally
+        let currentShareUrl = '';
+
+        // Generate QR code URL using qrserver.com API
+        function getQRCodeUrl(url, size, format) {
+            size = size || 200;
+            format = format || 'png';
+            const formatParam = format === 'svg' ? '&format=svg' : '';
+            return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}${formatParam}&data=${encodeURIComponent(url)}`;
+        }
+
         // Extract journey_id from URL or referrer and display sharing link
         function initSharingLink() {
             let journeyId = null;
@@ -253,21 +458,30 @@
             if (journeyId) {
                 const sharingSection = document.getElementById('sharing-section');
                 const sharingLink = document.getElementById('sharing-link');
+                const qrCode = document.getElementById('qr-code');
+                const nativeShareBtn = document.getElementById('native-share-btn');
                 
                 const shareUrl = `grow.leparfum.ai/?journey_id=${journeyId}`;
+                currentShareUrl = 'https://' + shareUrl;
                 
                 sharingLink.textContent = shareUrl;
                 sharingSection.classList.remove('hidden');
+
+                // Set QR code image
+                qrCode.src = getQRCodeUrl(currentShareUrl, 200, 'png');
+
+                // Show native share button if supported
+                if (navigator.share) {
+                    nativeShareBtn.classList.remove('hidden');
+                }
             }
         }
 
         // Copy sharing link to clipboard
         function copyShareLink() {
-            const sharingLink = document.getElementById('sharing-link');
             const copyButton = document.getElementById('copy-button');
-            const fullUrl = 'https://' + sharingLink.textContent;
 
-            navigator.clipboard.writeText(fullUrl).then(function() {
+            navigator.clipboard.writeText(currentShareUrl).then(function() {
                 copyButton.textContent = 'Copied!';
                 copyButton.classList.add('copied');
                 
@@ -279,7 +493,7 @@
                 console.error('Failed to copy: ', err);
                 // Fallback for older browsers
                 const textArea = document.createElement('textarea');
-                textArea.value = fullUrl;
+                textArea.value = currentShareUrl;
                 document.body.appendChild(textArea);
                 textArea.select();
                 document.execCommand('copy');
@@ -292,6 +506,69 @@
                     copyButton.textContent = 'Copy';
                     copyButton.classList.remove('copied');
                 }, 2000);
+            });
+        }
+
+        // Download QR code
+        function downloadQR(format) {
+            const link = document.createElement('a');
+            link.href = getQRCodeUrl(currentShareUrl, 1000, format);
+            link.download = 'leparfum-qr.' + format;
+            link.click();
+        }
+
+        // Native share API
+        function nativeShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Join me on Le Parfum',
+                    text: 'Create your own custom fragrance with AI!',
+                    url: currentShareUrl
+                }).catch(function(err) {
+                    console.log('Share cancelled or failed:', err);
+                });
+            }
+        }
+
+        // Share to WhatsApp
+        function shareWhatsApp() {
+            const message = encodeURIComponent('Join me on Le Parfum! Create your own custom fragrance with AI. ' + currentShareUrl);
+            window.open('https://wa.me/?text=' + message, '_blank');
+        }
+
+        // Share via SMS
+        function shareSMS() {
+            const message = encodeURIComponent('Join me on Le Parfum! ' + currentShareUrl);
+            window.location.href = 'sms:?body=' + message;
+        }
+
+        // Share to Telegram
+        function shareTelegram() {
+            const url = encodeURIComponent(currentShareUrl);
+            const text = encodeURIComponent('Join me on Le Parfum! Create your own custom fragrance with AI.');
+            window.open('https://t.me/share/url?url=' + url + '&text=' + text, '_blank');
+        }
+
+        // Share to Messenger
+        function shareMessenger() {
+            // Copy link first, then open Messenger
+            navigator.clipboard.writeText(currentShareUrl).then(function() {
+                alert('Link copied!\\n\\nPaste it in Messenger to share.\\n\\nPress OK to open Messenger.');
+                
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                
+                setTimeout(function() {
+                    if (isMobile) {
+                        window.location.href = 'fb-messenger://';
+                        setTimeout(function() {
+                            window.location.href = 'https://www.messenger.com/';
+                        }, 1500);
+                    } else {
+                        window.open('https://www.messenger.com/', '_blank');
+                    }
+                }, 100);
+            }).catch(function(err) {
+                alert('Copy this link to share in Messenger:\\n\\n' + currentShareUrl);
             });
         }
 
