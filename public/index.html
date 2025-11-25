@@ -105,11 +105,95 @@
             font-family: 'Andale Mono', 'Courier New', monospace;
             border: 1px solid #333;
         }
+
+        /* Sharing Link Styles */
+        .sharing-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .sharing-section h3 {
+            font-family: 'Colosseum Light', 'Arial', sans-serif;
+            font-size: 20px;
+            margin: 0 0 15px 0;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .sharing-section p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .sharing-link-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .sharing-link-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-family: 'Andale Mono', 'Courier New', monospace;
+            font-size: 14px;
+            color: #fff;
+            word-break: break-all;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .copy-button {
+            background: #4c2fff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Andale Mono', 'Courier New', monospace;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .copy-button:hover {
+            background: #3d1fd9;
+            transform: translateY(-2px);
+        }
+
+        .copy-button.copied {
+            background: #10b981;
+        }
+
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="logo">leparfum.ai</h1>
+
+        <!-- Sharing Link Section - shown when journey_id is in URL -->
+        <div id="sharing-section" class="sharing-section hidden">
+            <h3>YOUR SHARING LINK</h3>
+            <p>Share this link with friends to invite them to the experience</p>
+            <div class="sharing-link-container">
+                <div id="sharing-link" class="sharing-link-box"></div>
+                <button id="copy-button" class="copy-button" onclick="copyShareLink()">Copy</button>
+            </div>
+        </div>
 
         <h2 class="tagline">BOTTLE THE MOMENT</h2>
 
@@ -143,5 +227,76 @@
             </form>
         </div>
     </div>
+
+    <script>
+        // Extract journey_id from URL or referrer and display sharing link
+        function initSharingLink() {
+            let journeyId = null;
+
+            // First, check URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            journeyId = urlParams.get('journey_id');
+
+            // If not in URL params, check the referrer URL
+            if (!journeyId && document.referrer) {
+                try {
+                    const referrerUrl = new URL(document.referrer);
+                    const referrerParams = new URLSearchParams(referrerUrl.search);
+                    journeyId = referrerParams.get('journey_id');
+                } catch (e) {
+                    // Invalid referrer URL, ignore
+                    console.log('Could not parse referrer URL');
+                }
+            }
+
+            // If we found a journey_id, display the sharing section
+            if (journeyId) {
+                const sharingSection = document.getElementById('sharing-section');
+                const sharingLink = document.getElementById('sharing-link');
+                
+                const shareUrl = `grow.leparfum.ai/?journey_id=${journeyId}`;
+                
+                sharingLink.textContent = shareUrl;
+                sharingSection.classList.remove('hidden');
+            }
+        }
+
+        // Copy sharing link to clipboard
+        function copyShareLink() {
+            const sharingLink = document.getElementById('sharing-link');
+            const copyButton = document.getElementById('copy-button');
+            const fullUrl = 'https://' + sharingLink.textContent;
+
+            navigator.clipboard.writeText(fullUrl).then(function() {
+                copyButton.textContent = 'Copied!';
+                copyButton.classList.add('copied');
+                
+                setTimeout(function() {
+                    copyButton.textContent = 'Copy';
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = fullUrl;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                copyButton.textContent = 'Copied!';
+                copyButton.classList.add('copied');
+                
+                setTimeout(function() {
+                    copyButton.textContent = 'Copy';
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initSharingLink);
+    </script>
 </body>
 </html>
